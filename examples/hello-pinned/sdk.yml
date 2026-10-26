@@ -1,0 +1,8 @@
+# Base pinned to a released version (a tag of this repository): the base is
+# read from the `hello-1.0` ref, not from the current checkout.
+extends: hello@hello-1.0
+mirror: $HOME/tmp/mirror
+gits:
+  - name: hello-pinned-extra
+    url: https://github.com/octocat/Hello-World.git
+    commit: master

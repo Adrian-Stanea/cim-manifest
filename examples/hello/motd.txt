@@ -1,1 +1,1 @@
-hello target (v1.0)
+hello target (v2.0)

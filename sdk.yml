@@ -1,0 +1,10 @@
+# Root-level target: its manifest directory is the whole repository, so the
+# clone's .git must not end up in the workspace.
+mirror: $HOME/tmp/mirror
+gits:
+  - name: hello-world
+    url: https://github.com/octocat/Hello-World.git
+    commit: master
+copy_files:
+  - source: README.md
+    dest: README-root.md

@@ -1,0 +1,13 @@
+# Level 2: extends `hello` from this same repository (base found through .cim.yml).
+extends: hello
+mirror: $HOME/tmp/mirror
+gits:
+  - name: hello-plus-extra
+    url: https://github.com/octocat/Hello-World.git
+    commit: master
+overlay:
+  gits:
+    modify:
+      - name: hello-world
+        build: |
+          @echo "Building hello-world (hello-plus flavour)"

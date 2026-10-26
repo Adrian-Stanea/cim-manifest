@@ -1,0 +1,11 @@
+# Level 3: extends hello-plus, which extends hello.
+extends: hello-plus
+mirror: $HOME/tmp/mirror
+gits:
+  - name: hello-max-extra
+    url: https://github.com/octocat/Hello-World.git
+    commit: master
+overlay:
+  gits:
+    remove:
+      - git-sandbox

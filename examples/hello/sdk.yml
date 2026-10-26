@@ -5,6 +5,9 @@ gits:
     commit: master
     build: |
       @echo "Building hello-world"
+  - name: git-sandbox
+    url: https://github.com/kevin-bates/git-sandbox.git
+    commit: master
 copy_files:
   - source: src/
     dest: src/

@@ -1,0 +1,6 @@
+# Not listed in .cim.yml: reachable only with `-M experimental/sdk.yml`.
+mirror: $HOME/tmp/mirror
+gits:
+  - name: hello-world
+    url: https://github.com/octocat/Hello-World.git
+    commit: master
