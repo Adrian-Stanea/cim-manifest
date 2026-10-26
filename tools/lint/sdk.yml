@@ -1,0 +1,5 @@
+mirror: $HOME/tmp/mirror
+gits:
+  - name: hello-world
+    url: https://github.com/octocat/Hello-World.git
+    commit: master

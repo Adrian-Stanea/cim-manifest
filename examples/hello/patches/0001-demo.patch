@@ -1,0 +1,2 @@
+Demo patch shipped next to the manifest; proves copy_files globs resolve
+relative to the manifest directory, not the repository root.

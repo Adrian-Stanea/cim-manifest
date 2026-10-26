@@ -1,0 +1,8 @@
+profiles:
+  minimal:
+    packages: []
+  docs:
+    packages:
+      - sphinx
+
+default: minimal

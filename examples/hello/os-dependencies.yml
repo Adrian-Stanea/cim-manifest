@@ -1,0 +1,18 @@
+ubuntu_packages: &ubuntu_pkgs
+  - build-essential
+  - git
+
+linux-x86_64:
+  ubuntu-24.04:
+    command: "apt install"
+    packages: *ubuntu_pkgs
+
+linux-aarch64:
+  ubuntu-24.04:
+    command: "apt install"
+    packages: *ubuntu_pkgs
+
+linux:
+  ubuntu-24.04:
+    command: "apt install"
+    packages: *ubuntu_pkgs

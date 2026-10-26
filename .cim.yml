@@ -1,0 +1,3 @@
+# CIM manifest index. Every directory matching a pattern below that holds an
+# sdk.yml is a target named after the directory.
+members: ["examples/*", "tools/*"]

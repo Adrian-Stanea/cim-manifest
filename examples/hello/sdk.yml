@@ -1,0 +1,14 @@
+mirror: $HOME/tmp/mirror
+gits:
+  - name: hello-world
+    url: https://github.com/octocat/Hello-World.git
+    commit: master
+    build: |
+      @echo "Building hello-world"
+copy_files:
+  - source: src/
+    dest: src/
+  - source: motd.txt
+    dest: motd.txt
+  - source: patches/*.patch
+    dest: patches/
