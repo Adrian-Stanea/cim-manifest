@@ -14,9 +14,9 @@ cim init -t hello -s $U
 ## What is on `main`
 
 ```text
-.cim.yml                       members: ".", "examples/*", "examples/hello", "tools/*"
-                               targets: docs -> extras/docs/sdk.yml
-sdk.yml                        root target, named after the repository
+.cim.yml                       members: "examples/*", "examples/hello", "tools/*"
+                               targets: docs -> extras/docs/sdk.yml, root -> sdk.yml
+sdk.yml                        manifest at the repository root, exposed by the `root` entry
 examples/hello/                sdk.yml, os/python deps, src/, patches/*.patch, motd.txt
 examples/hello-plus/           extends: hello (+ overlay modify, own os deps)
 examples/hello-max/            extends: hello-plus (3-level chain, overlay remove)
@@ -33,18 +33,17 @@ experimental/sdk.yml           not indexed: only reachable with `-M experimental
 | Ref | Kind | What it shows |
 | --- | --- | --- |
 | `hello-1.0` | tag | early layout: one git, no composed targets, `motd.txt` says v1.0 |
-| `hello-2.0` | tag | composed targets, root target, two gits, `motd.txt` says v2.0 |
+| `hello-2.0` | tag | composed targets, `root` entry, two gits, `motd.txt` says v2.0 |
 | `hello-dev` | branch | branches are listed as versions too |
-| `single-demo-1.0` | tag on `demo-single` | single `manifest:` form with `name:` |
 | `legacy-1.0` | tag on `demo-legacy` | no `.cim.yml`: classic `targets/legacy/sdk.yml` |
 
 ## Scenario branches
 
 | Branch | Index | Expected |
 | --- | --- | --- |
-| `demo-single` | `manifest:` + `name: single-demo` | one target, `single-demo` |
-| `demo-single-noname` | `manifest:` only | one target named after the repository |
 | `demo-legacy` | none | classic `targets/*` lookup keeps working |
+| `err-single-manifest` | `manifest:` + `name:` | "unknown field: manifest" (single-manifest form is not supported) |
+| `err-root-member` | `members: ["."]` | "matches the repository root" |
 | `err-broken-index` | unknown key (`membres:`) | clear error, no silent fallback |
 | `err-dup-names` | two directories named `x` | "defined more than once" |
 | `err-ghost-target` | entry pointing to a missing file | "does not exist" |
