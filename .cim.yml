@@ -1,7 +1,6 @@
 # CIM manifest index. Every directory matching a pattern below that holds an
 # sdk.yml is a target named after the directory.
 members:
-  - "."                # the repository root itself (named after the repository)
   - "examples/*"
   - "examples/hello"   # overlaps the glob above: the same manifest twice is fine
   - "tools/*"
@@ -9,3 +8,4 @@ members:
 # Explicit entries combine with members: and can live anywhere.
 targets:
   docs: extras/docs/sdk.yml
+  root: sdk.yml        # a manifest at the repository root needs an explicit entry
